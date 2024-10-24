@@ -1,56 +1,63 @@
 #include<stdio.h>
 #include<string.h>
+#include<iostream>
+
+using namespace std;
+
 struct Node{
-    String palavra;
+    string palavra;
     Node* next;
-    
+
     Node(){
-        palavra = NULL;
+        palavra = "";
         next = NULL;
     }
-    
-    Node(String _palavra){
+
+    Node(string _palavra){
         palavra = _palavra;
         next = NULL;
     }
-    
+
 };
 
 struct List{
   Node* first;
   Node* last;
-   
+
   List(){
       first=NULL;
       last=NULL;
   }
-  
+
   bool empty(){
       return first==0;
   }
-  
-  void pushBack(String _palavra){
+
+  void pushBack(string _palavra){
       Node *n = new Node(_palavra);
       if(empty()){
           first = n;
           last= n;
+          return;
       }
       last->next = n;
       last = n;
   }
-  
-  void print(String nome,String _palavra){
+
+  void print(string nome,string _palavra){
       Node *aux = first;
       while(aux != NULL){
-          if(strcmp(aux->palavra, _palavra)==0 ){
-              printf("%s\n",nome);
-              printf("%s\n\n",aux->next);
+          if(aux->palavra == _palavra ){
+              cout << nome << endl;
+                if (aux->next != NULL) {
+                    cout << aux->next->palavra << endl << endl;
+                }
           }
           aux = aux->next;
       }
   }
-  
-  
+
+
 };
 
 
@@ -58,19 +65,22 @@ int main()
 {
    List l;
    int qtd,qtd2;
-   String idioma,frase,nome;
-   scanf("%d",&qtd);
-   for (int i=0 i < qtd;i++){
-       scanf("%s",idioma);
-       scanf("%[^/n]*c",frase);
+   string idioma,frase,nome;
+   cin >> qtd;
+   for (int i=0;i < qtd;i++){
+       cin >> idioma;
+       cin.ignore();
+       getline(cin, frase);
        l.pushBack(idioma);
        l.pushBack(frase);
    }
-   
-   scanf("%d",&qtd2);
-   for (int i=0 i < qtd2;i++){
-       scanf("%s",nome);
-       scanf("%s",idioma);
+
+   cin >> qtd2;
+   cin.ignore();
+   for (int i=0;i < qtd2;i++){
+       getline(cin, nome);
+       cin >> idioma;
+       cin.ignore();
        l.print(nome,idioma);
    }
     return 0;
