@@ -58,7 +58,7 @@ struct List {
         last = n;
     }
 
-    void print() { // complexidade de tempo O(n), complexidade de espaço O(1)
+    void print() { // complexidade de tempo O(n), complexidade de espaÃ§o O(1)
         Node* aux = first;
         while (aux != NULL) {
             printf("%d -> ", aux->value);
@@ -114,7 +114,7 @@ struct List {
         last = aux;
         last->next = NULL;
         delete(toDel);
-        c--;//nao se esqueça de sempre incrementar e decrementar
+        c--;//nao se esqueÃ§a de sempre incrementar e decrementar
     }
 
     void insert(int value, int pos) { //O(n)
@@ -131,7 +131,7 @@ struct List {
         Node* n = new Node(value);
         n->next = aux->next;
         aux->next = n;
-        c++;//nao se esqueça de sempre incrementar e decrementar
+        c++;//nao se esqueÃ§a de sempre incrementar e decrementar
     }
 
     void remove(int value) { // O(n)
@@ -171,7 +171,7 @@ struct List {
         delete(toDel);
         c--;
     }
-
+    //ATIVIDADE 1
     void removeByQtd(int n){
         int a=c;
         if(n>c){
@@ -186,7 +186,7 @@ struct List {
             }
         }
     }
-
+    //ATIVIDADE 2
     void remove2Elemento(){
         if(c<=1){
             return;
@@ -197,26 +197,26 @@ struct List {
             c--;
         }
     }
-
+    //ATIVIDADE 3
     void colocarCnoFinal(){
         pushBack(c);
 
     }
-
+    //ATIVIDADE 4
     void inserirListaAteN(int n){
         for(int i =1; i<=n;i++){
             pushBack(i);
 
         }
     }
-
+    //ATIVIDADE 5
     void inserirPenultimoPos(int element){
         if(c<=1){
             return;
         }else{
             Node* penult = first;
             Node* elemento =new Node(element);
-            while(penult->next!=last){//rodou ate a penultima posição
+            while(penult->next!=last){//rodou ate a penultima posiÃ§Ã£o
                 penult = penult->next;
             }
             penult->next = elemento;
