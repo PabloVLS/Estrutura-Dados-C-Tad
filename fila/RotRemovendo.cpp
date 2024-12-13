@@ -55,7 +55,7 @@ struct Fila {
 
     int frente() {
         if (vazia()) {
-            return -1; // Valor inválido para indicar fila vazia
+            return -1; // Valor invÃ¡lido para indicar fila vazia
         }
         return cabeca->valor;
     }
